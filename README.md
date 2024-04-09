@@ -86,7 +86,15 @@ In `index.js`, there is an empty function, `fetchBooks()`, that is called when
 `index.html` is loaded. To pass this lab, this function should include a fetch
 request to the Game of Thrones API (https://anapioficeandfire.com/api/books).
 The returned response should be converted to JSON. Then, it should call the
-second function, `renderBooks()`, passing in the JSON-ified data as the
+second function, `renderBooks(fetch('https://anapioficeandfire.com/api/books')
+  .then(resp => resp.json())
+  .then(books => {
+    const totalPages = books.reduce((acc, book) => {
+      return acc + book.numberOfPages;
+    }, 0);
+
+    console.log(totalPages);
+  });)`, passing in the JSON-ified data as the
 argument. To check if you have done this correctly, open up the index.html page
 of this lab; you should see a list of Game Of Thrones titles on your webpage.
 
@@ -103,7 +111,26 @@ the world is your oyster!
 
 ## Resources
 
-- [Game of Thrones API][got]
+- [Game of Thrones API][got]fetch('https://anapioficeandfire.com/api/books')
+  .then(respunction is defined to return the fetch() request targeting the API endpoint for books. This function can be called to initiate the API request, and then you can chain .then() to handle the response data accordingly.
+Search Images
+Search Videos
+Generate Image
+￼
+Share
+￼
+Rewrite
+￼
+￼
+￼
+ => resp.json())
+  .then(books => {
+    const totalPages = books.reduce((acc, book) => {
+      return acc + book.numberOfPages;
+    }, 0);
+
+    console.log(totalPages);
+  });
 - [MDN: Using Fetch][fetch]
 
 [got]: https://anapioficeandfire.com/
